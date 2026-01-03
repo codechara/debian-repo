@@ -1,0 +1,39 @@
+/dts-v1/;
+
+/ {
+	timestamp = <0x67a14cb1>;
+	description = "Debian";
+	#address-cells = <0x01>;
+
+	images {
+
+		kernel-1 {
+			description = "Linux";
+			data = /incbin/("zImage");
+			type = "kernel";
+			arch = "arm";
+			os = "linux";
+			compression = "none";
+			load = <0x80008000>;
+			entry = <0x80008000>;
+		};
+
+		fdt-1 {
+			description = "Device tree blob";
+			data = /incbin/("imx6ull-gtw360.dtb");
+			type = "flat_dt";
+			arch = "arm";
+			compression = "none";
+		};
+	};
+
+	configurations {
+		default = "config-1";
+
+		config-1 {
+			description = "Debian for Geniatech GTW360";
+			kernel = "kernel-1";
+			fdt = "fdt-1";
+		};
+	};
+};
