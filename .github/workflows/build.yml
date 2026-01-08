@@ -1,0 +1,27 @@
+name: linux
+run-name: Linux building and packaging
+on: [push, fork]
+
+jobs:
+  linux:
+    name: Linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup build environment
+        run: |
+          sudo apt update
+          sudo apt install -y tree build-essential libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf llvm bc gcc-arm-linux-gnueabi dpkg-dev arch-install-scripts device-tree-compiler
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare
+        run: make prepare
+
+      - name: Build & Package
+        run: sudo make
+
+      - name: Artifact package
+        uses: actions/upload-artifact@v4
+        with:
+          path: output/linux.deb

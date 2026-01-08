@@ -19,4 +19,6 @@ make package # makes package. !!!Need root!!!
 ```
 
 ## To Do
- - Make a proper flattened image tree
+ - Make a proper flattened image tree, not decompilated and edited from openlumi/openwrt repository
+ - Non-dirty tree
+ - Remove commit from linux local version
