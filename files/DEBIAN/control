@@ -1,0 +1,7 @@
+Package: firmware
+Version: 1.0
+Architecture: armhf
+Essential: yes
+Priority: important
+Maintainer: codechara
+Description: Firmware for Geniatech GTW360

@@ -1,0 +1,24 @@
+name: package
+run-name: Package firmware
+on: [push, fork]
+
+jobs:
+  package:
+    name: Package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup build environment
+        run: |
+          sudo apt update
+          sudo apt install -y dpkg-dev
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Package
+        run: make
+
+      - name: Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: output/firmware.deb
