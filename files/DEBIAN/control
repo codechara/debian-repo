@@ -3,6 +3,5 @@ Version: 6.6.53-1
 Architecture: armhf
 Essential: yes
 Priority: important
-Depends: firmware-gtw360
 Maintainer: codechara
 Description: Linux kernel & modules for Geniatech GTW360

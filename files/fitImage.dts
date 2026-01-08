@@ -1,29 +1,33 @@
 /dts-v1/;
 
+// decompiled and modified fitImage of https://gothub.com/openlumi/openwrt for gtw360
+
 / {
 	timestamp = <0x67a14cb1>;
-	description = "Debian";
+	description = "ARM Debian FIT";
 	#address-cells = <0x01>;
 
 	images {
 
 		kernel-1 {
-			description = "Linux";
-			data = /incbin/("zImage");
+			description = "ARM Debian Linux-6.6";
 			type = "kernel";
 			arch = "arm";
 			os = "linux";
 			compression = "none";
 			load = <0x80008000>;
 			entry = <0x80008000>;
+
+			data = /incbin/("zImage");
 		};
 
 		fdt-1 {
-			description = "Device tree blob";
-			data = /incbin/("imx6ull-gtw360.dtb");
+			description = "ARM Debian geniatech_gtw360 device tree blob";
 			type = "flat_dt";
 			arch = "arm";
 			compression = "none";
+
+			data = /incbin/("imx6ull-gtw360.dtb");
 		};
 	};
 
@@ -31,7 +35,7 @@
 		default = "config-1";
 
 		config-1 {
-			description = "Debian for Geniatech GTW360";
+			description = "Debian geniatech_gtw360";
 			kernel = "kernel-1";
 			fdt = "fdt-1";
 		};
