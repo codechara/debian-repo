@@ -4,4 +4,5 @@ Architecture: armhf
 Essential: yes
 Priority: important
 Maintainer: codechara
+Depends: firmware
 Description: Linux kernel & modules for Geniatech GTW360
