@@ -5,7 +5,7 @@ NPROC := $(shell nproc)
 
 make_linux := make O=out ARCH=arm SUBARCH=arm CROSS_COMPILE=$(CROSS_COMPILE)
 
-.PHONY: all prepare build package defconfig menuconfig fitImage
+.PHONY: all prepare build package defconfig menuconfig fitImage clean
 all: build package
 
 prepare: output source defconfig
@@ -41,3 +41,7 @@ package: fitImage
 	cd output; mkdir linux/boot; cp fitImage[A-B] linux/boot
 	cd source; $(make_linux) INSTALL_MOD_PATH=../../output/linux modules_install
 	dpkg-deb --build output/linux output/linux.deb
+
+clean:
+	rm -rf output
+	rm -rf source

@@ -16,6 +16,7 @@ make build # or just make, !!!root needed!!!. Builds kernel and package it to th
 make menuconfig # to open kernel's menuconfig
 make defconfig # reset config
 make package # makes package. !!!Need root!!!
+make clean # Delete source/ and output/
 ```
 
 ## To Do
