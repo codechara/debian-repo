@@ -1,3 +1,4 @@
+.PHONY: all package clean
 all: output package
 
 output:
@@ -5,3 +6,6 @@ output:
 
 package:
 	dpkg-deb --build files output/firmware.deb
+
+clean:
+	rm -rf output
